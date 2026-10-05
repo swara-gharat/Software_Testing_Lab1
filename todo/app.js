@@ -42,10 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
       completeTask(taskItem);
     });
 
-    const editButton = taskItem.querySelector('.edit-btn');
-    editButton.addEventListener('click', function () {
-      editTask(taskItem);
-    });
 
     const deleteButton = taskItem.querySelector('.delete-btn');
     deleteButton.addEventListener('click', function () {
@@ -62,10 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
       completeButton.remove();
     }
 
-    const editButton = taskItem.querySelector('.edit-btn');
-    if (editButton) {
-      editButton.remove();
-    }
 
     const currentDate = new Date();
     const formattedDate = `${currentDate.toLocaleDateString()} ${currentDate.toLocaleTimeString()}`;
@@ -76,22 +68,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     completedList.appendChild(taskItem);
-  }
-
-  function editTask(taskItem) {
-    const titleElement = taskItem.querySelector('h3');
-    const descriptionElement = taskItem.querySelector('p');
-
-    const currentTitle = titleElement.innerText;
-    const currentDescription = descriptionElement.innerText;
-
-    const newTitle = prompt('Edit task title:', currentTitle);
-    const newDescription = prompt('Edit task description:', currentDescription);
-
-    if (newTitle !== null && newDescription !== null) {
-      titleElement.innerText = newTitle;
-      descriptionElement.innerText = newDescription;
-    }
   }
 
   function deleteTask(taskItem) {
